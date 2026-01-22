@@ -6,8 +6,9 @@ dotenv.config();
 const { Pool } = pg;
 
 if (!process.env.DATABASE_URL) {
-  throw new Error("Missing DATABASE_URL in .env");
+  console.warn("DATABASE_URL not set. DB features disabled.");
 }
+
 
 export const pool = new Pool({
   connectionString: process.env.DATABASE_URL,

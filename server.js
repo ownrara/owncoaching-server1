@@ -6,6 +6,7 @@ import { pool } from "./db/db.js";
 
 // ✅ IMPORT ROUTES
 import clientsRoutes from "./routes/clients.routes.js";
+import trainingRoutes from "./routes/training.routes.js";
 
 dotenv.config();
 
@@ -43,6 +44,7 @@ app.get("/api/db-check", async (req, res) => {
    ROUTES
 ====================== */
 app.use("/api/clients", clientsRoutes);
+app.use("/api/training", trainingRoutes);
 
 /* ======================
    START SERVER

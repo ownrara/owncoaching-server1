@@ -4,7 +4,6 @@ import morgan from "morgan";
 import dotenv from "dotenv";
 import { pool } from "./db/db.js";
 
-// ✅ IMPORT ROUTES
 import clientsRoutes from "./routes/clients.routes.js";
 import trainingRoutes from "./routes/training.routes.js";
 import nutritionRoutes from "./routes/nutrition.routes.js";
@@ -34,6 +33,7 @@ app.get("/api/health", (req, res) => {
 /* ======================
    DB CHECK
 ====================== */
+
 app.get("/api/db-check", async (req, res) => {
   try {
     const result = await pool.query("SELECT NOW() AS now;");
@@ -46,11 +46,13 @@ app.get("/api/db-check", async (req, res) => {
 /* ======================
    ROUTES
 ====================== */
+
 app.use("/api/clients", clientsRoutes);
 app.use("/api/training", trainingRoutes);
 app.use("/api/nutrition", nutritionRoutes);
 app.use("/api/checkins", checkinsRoutes);
 app.use("/api/auth", authRoutes);
+
 /* ======================
    START SERVER
 ====================== */

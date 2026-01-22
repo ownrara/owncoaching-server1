@@ -8,6 +8,8 @@ import { pool } from "./db/db.js";
 import clientsRoutes from "./routes/clients.routes.js";
 import trainingRoutes from "./routes/training.routes.js";
 import nutritionRoutes from "./routes/nutrition.routes.js";
+import checkinsRoutes from "./routes/checkins.routes.js";
+import authRoutes from "./routes/auth.routes.js";
 
 dotenv.config();
 
@@ -47,7 +49,8 @@ app.get("/api/db-check", async (req, res) => {
 app.use("/api/clients", clientsRoutes);
 app.use("/api/training", trainingRoutes);
 app.use("/api/nutrition", nutritionRoutes);
-
+app.use("/api/checkins", checkinsRoutes);
+app.use("/api/auth", authRoutes);
 /* ======================
    START SERVER
 ====================== */

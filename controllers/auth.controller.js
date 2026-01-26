@@ -73,7 +73,7 @@ export async function login(req, res) {
         .json({ ok: false, error: "Email and password required" });
     }
 
-    // ✅ Select client_id too
+    // Select client_id too
     const result = await pool.query(
       "SELECT id, email, password, role, client_id FROM users WHERE email = $1 LIMIT 1",
       [email]
@@ -91,7 +91,7 @@ export async function login(req, res) {
     let clientId = null;
 
     if (String(user.role).toLowerCase() === "client") {
-      // ✅ Use the DB link (users.client_id) — do NOT rebuild it from user.id
+      //  Use the DB link (users.client_id) — do NOT rebuild it from user.id
       clientId = user.client_id ? String(user.client_id) : null;
 
       // Safety fallback: if old data exists without client_id
@@ -186,7 +186,7 @@ export async function signup(req, res) {
       [clientId, `Client ${clientId}`, email]
     );
 
-    // ✅ 3) Link user -> client using users.client_id
+    // 3) Link user -> client using users.client_id
     await client.query(
       `UPDATE users SET client_id = $1 WHERE id = $2`,
       [clientId, user.id]

@@ -2,7 +2,7 @@
 
 This folder contains the **Node.js (Express)** backend API for **OwnCoaching**.
 
-Key goals (course-style implementation):
+Key goals 
 - Simple REST API (JSON)
 - PostgreSQL for persistence
 - Role-based login: **coach** vs **client**

@@ -41,7 +41,7 @@ export async function saveNutritionPlan(req, res) {
       return res.status(400).json({ ok: false, error: "Invalid body" });
     }
 
-    // Optional minimal validation (course-safe)
+    // Optional minimal validation 
     if (!Array.isArray(nutrition.plans)) {
       return res
         .status(400)

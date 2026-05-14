@@ -1,6 +1,6 @@
 import { pool } from "../db/db.js";
 
-// helpers (course style)
+// helpers 
 function isoToday() {
   return new Date().toISOString().slice(0, 10);
 }
@@ -139,7 +139,7 @@ export async function createCheckIn(req, res) {
 
 /**
  * PUT /api/checkins/:id/review
- * Body: { coachNotes: "...", status: "reviewed" } (status optional)
+ * Body: { coachNotes: "...", status: "reviewed" } 
  */
 export async function reviewCheckIn(req, res) {
   try {
